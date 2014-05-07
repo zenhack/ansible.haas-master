@@ -5,5 +5,5 @@
     state=present
 - name: Install development tools for the HaaS
   sudo: yes
-  yum: name=git,https://dl.fedoraproject.org/pub/epel/6/x86_64/python-virtualenv-1.10.1-1.el6.noarch.rpm
+  yum: name=gcc,git,https://dl.fedoraproject.org/pub/epel/6/x86_64/python-virtualenv-1.10.1-1.el6.noarch.rpm
     state=present
