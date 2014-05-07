@@ -1,7 +1,4 @@
 ---
 - name: Install rpm dependencies of the HaaS
   sudo: yes
-  yum: name=libvirt state=present
-  yum: name=libvirt-client state=present
-  yum: name=python-virtinst state=present
-  yum: name=git state=present
+  yum: name=libvirt,libvirt-client,python-virtinst,git state=present
