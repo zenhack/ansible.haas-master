@@ -1,4 +1,8 @@
 ---
+- name: Make sure the EPEL repository is enabled.
+  sudo: yes
+  yum: state=present
+    name=http://www.gtlib.gatech.edu/pub/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
 - name: Install rpm dependencies and development tools of the HaaS.
   sudo: yes
   yum: name={{ item }} state=present
@@ -12,7 +16,7 @@
     - qemu-kvm
     - gcc
     - git
-    - https://dl.fedoraproject.org/pub/epel/6/x86_64/python-virtualenv-1.10.1-1.el6.noarch.rpm
+    - python-virtualenv
 - name: Start libvirtd
   sudo: yes
   service: name=libvirtd state=started enabled=yes
