@@ -1,12 +1,18 @@
 ---
-- name: Install rpm dependencies of the HaaS
+- name: Install rpm dependencies and development tools of the HaaS.
   sudo: yes
-  yum: name=libvirt,libvirt-client,python-virtinst,vconfig,bridge-utils,telnet,qemu-kvm
-    state=present
+  yum: name={{ item }} state=present
+  with_items:
+    - libvirt
+    - libvirt-client
+    - python-virtinst
+    - vconfig
+    - bridge-utils
+    - telnet
+    - qemu-kvm
+    - gcc
+    - git
+    - https://dl.fedoraproject.org/pub/epel/6/x86_64/python-virtualenv-1.10.1-1.el6.noarch.rpm
 - name: Start libvirtd
   sudo: yes
   service: name=libvirtd state=started enabled=yes
-- name: Install development tools for the HaaS
-  sudo: yes
-  yum: name=gcc,git,https://dl.fedoraproject.org/pub/epel/6/x86_64/python-virtualenv-1.10.1-1.el6.noarch.rpm
-    state=present
