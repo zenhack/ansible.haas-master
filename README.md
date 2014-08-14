@@ -1,3 +1,6 @@
+Note: this is unmaintained; the current development focus is on our
+[puppet module][3].
+
 This repository contains an [ansible][1] role for managing a HaaS
 master, i.e. a machine which runs the [HaaS][2].
 
@@ -10,3 +13,4 @@ extras like git.
 
 [1]: http://www.ansible.com
 [2]: https://github.com/CCI-MOC/haas
+[3]: https://github.com/CCI-MOC/puppet-haas
