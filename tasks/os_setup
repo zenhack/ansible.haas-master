@@ -1,0 +1,23 @@
+---
+- name: Make sure the EPEL repository is enabled.
+  yum: state=present
+    name=http://www.gtlib.gatech.edu/pub/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
+- name: Install rpm dependencies and development tools of the HaaS.
+  yum: name={{ item }} state=present
+  with_items:
+    - libvirt
+    - libvirt-client
+    - python-virtinst
+    - vconfig
+    - bridge-utils
+    - telnet
+    - qemu-kvm
+    - httpd
+    - mod_wsgi
+    - gcc
+    - git
+    - python-virtualenv
+- service: name=libvirtd state=started enabled=yes
+- service: name=httpd state=started enabled=yes
+- name: Create the haas user.
+  user: name=haas system=yes home=/var/lib/haas

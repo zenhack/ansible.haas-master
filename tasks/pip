@@ -1,0 +1,4 @@
+---
+- git: repo=git://github.com/cci-moc/{{ item }} dest=/var/lib/haas/{{ item }}
+- command: pip install . --user
+  chdir: /var/lib/haas/{{ item }}

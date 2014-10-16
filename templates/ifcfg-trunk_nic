@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+DEVICE={{ nic }}
+HWADDR={{ ansible_{{ nic }}.macaddress }}
+TYPE=Ethernet
+ONBOOT=yes
+NM_CONTROLLED=no
+PROMISC=yes

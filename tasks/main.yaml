@@ -1,22 +1,12 @@
 ---
-- name: Make sure the EPEL repository is enabled.
+- name: Do operating-system level setup for the HaaS --
+    install packages, start services, create users.
+  include: os_setup
   sudo: yes
-  yum: state=present
-    name=http://www.gtlib.gatech.edu/pub/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
-- name: Install rpm dependencies and development tools of the HaaS.
+- name: Install the haas and pypi dependencies in the haas user's home dir.
+  include: pip
   sudo: yes
-  yum: name={{ item }} state=present
+  sudo_user: haas
   with_items:
-    - libvirt
-    - libvirt-client
-    - python-virtinst
-    - vconfig
-    - bridge-utils
-    - telnet
-    - qemu-kvm
-    - gcc
-    - git
-    - python-virtualenv
-- name: Start libvirtd
-  sudo: yes
-  service: name=libvirtd state=started enabled=yes
+    - moc-rest
+    - haas
