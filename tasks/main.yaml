@@ -7,6 +7,3 @@
   include: pip
   sudo: yes
   sudo_user: haas
-  with_items:
-    - moc-rest
-    - haas

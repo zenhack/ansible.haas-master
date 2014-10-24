@@ -17,6 +17,7 @@
     - gcc
     - git
     - python-virtualenv
+    - python-pip
 - service: name=libvirtd state=started enabled=yes
 - service: name=httpd state=started enabled=yes
 - name: Create the haas user.
