@@ -1,7 +1,6 @@
 ---
 - name: Make sure the EPEL repository is enabled.
-  yum: state=present
-    name=http://www.gtlib.gatech.edu/pub/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
+  yum: state=present name=epel-release
 - name: Install rpm dependencies and development tools of the HaaS.
   yum: name={{ item }} state=present
   with_items:
